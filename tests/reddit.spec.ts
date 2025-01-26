@@ -20,6 +20,7 @@ test.describe('reddit', () => {
          test password.  If we needed to hide this, we would do so by using local environment
          files and/or secrets in our CI tool */
       const user = `example${Date.now()}@yopmail.com`
+      const password = 'test1234'
       const redditLandingPage = new RedditLandingPage(page)
       const redditLoginPopup = new RedditLoginPopup(page)
 
@@ -28,7 +29,7 @@ test.describe('reddit', () => {
       await redditLoginPopup.emailSignUpTextBox.fill(user)
       await redditLoginPopup.emailContinueBtn.click()
       await redditLoginPopup.skipBtn.click()
-      await redditLoginPopup.passwordTextBox.fill('test1234')
+      await redditLoginPopup.passwordTextBox.fill(password)
       await expect(redditLoginPopup.passwordContinueBtn).toBeEnabled()
       /* It seems that reddit blocks account creation via automated tooling.  I've ended the 
          test here as a result, but if it were to continue there would be two more dialogs to get
@@ -66,7 +67,7 @@ test.describe('reddit', () => {
 
         await redditEyeBleach.joinBtn.click()
         await expect(redditEyeBleach.joinedBtn).toBeVisible()
-        
+
         // Cleaning up the default state for the next test run
         await redditEyeBleach.joinedBtn.click()
         await expect(redditEyeBleach.joinBtn).toBeVisible()

@@ -1,3 +1,10 @@
 # playwright-demo
 
-To run: `npx playwright test --headed --project webkit`
+## To install:
+
+`npm install`
+`npx playwright install`
+
+## To run: 
+
+`npx playwright test --project webkit`
