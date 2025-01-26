@@ -2,7 +2,7 @@
 
 ## To install:
 
-`npm install`
+`npm install`  
 `npx playwright install`
 
 ## To run: 
